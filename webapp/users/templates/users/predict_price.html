@@ -1,0 +1,17 @@
+{% extends 'users/base.html' %}
+
+{% block content %}
+  <h2>Prediction Result</h2>
+  <form method="post" action="{% url 'predict_price' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="predict">Predict</button>
+  </form>
+
+  {% if predicted_price %}
+
+  <p>The predicted price is: {{ predicted_price }}</p>
+  <a href="{% url 'predict_price' %}">Back to Prediction</a>
+  {% endif %}
+{% endblock %}
+
