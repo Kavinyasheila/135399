@@ -15,9 +15,10 @@ class UserRegisterForm(UserCreationForm):
 
  
  
-class PricePredictionForm(forms.Form):
-    Name = forms.CharField(label='Product Name', max_length=255)
-    Quantity = forms.FloatField(label='Quantity') 
+class PricePredictionForm(forms.ModelForm):
+    class Meta:
+        model = PricePredictionInput
+        fields = ['Name', 'Quantity'] 
 
 
     
