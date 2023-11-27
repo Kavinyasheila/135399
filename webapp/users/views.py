@@ -10,8 +10,9 @@ from sklearn.preprocessing import LabelEncoder
 from .models import PricePredictionInput
 import re
 from django.contrib import messages
-
-
+from django.contrib.auth.forms import PasswordChangeForm
+from django.contrib.auth import update_session_auth_hash
+from .forms import CustomUserChangeForm
 
 # Load the pre-trained model outside the view function
 model = joblib.load('C:/Users/user/Documents/GitHub/135399/webapp/models/linear_regression_model.joblib')
@@ -65,17 +66,52 @@ def predict_price(request):
         total_price = product_price_per_each * user_quantity
 
         # Save user input and predicted price to the database
-        PricePredictionInput.objects.create(
+        prediction_instance = PricePredictionInput(
             Name=user_input['Name'],
             Quantity=user_quantity,
             PredictedPrice=total_price
         )
 
+        # Save the instance to the database
+        prediction_instance.save()
+        
+
         # Pass the estimated total price as a success message
         messages.success(request, f'The estimated total price for {user_input["Quantity"]} of {user_input["Name"]} is {total_price:.2f} KSH.')
+
+        context = {'form': form}
 
         return redirect('predict_price')
 
     context = {'form': form}
     return render(request, 'users/predict_price.html', context)
+
+def profile(request):
+     #user_predictions = PricePredictionInput.objects.filter(user=request.user)
+
+     #context = {'user_predictions': user_predictions} 
+     return render(request, 'users/profile.html')
+
+def change_password(request):
+    if request.method == 'POST':
+        form = PasswordChangeForm(request.user, request.POST)
+        if form.is_valid():
+            user = form.save()
+            update_session_auth_hash(request, user)  # Important to keep the user logged in
+            messages.success(request, 'Your password was successfully updated!')
+            return redirect('profile')
+    else:
+        form = PasswordChangeForm(request.user)
+    return render(request, 'users/change_password.html', {'form': form})
+
+def edit_profile(request):
+    if request.method == 'POST':
+        form = CustomUserChangeForm(request.POST, instance=request.user)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Your profile was successfully updated!')
+            return redirect('profile')
+    else:
+        form = CustomUserChangeForm(instance=request.user)
+    return render(request, 'users/edit_profile.html', {'form': form})
 

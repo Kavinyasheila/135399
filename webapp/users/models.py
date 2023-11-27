@@ -37,10 +37,11 @@ class CustomUser(AbstractUser):
 
     
 class PricePredictionInput(models.Model):
+    #User = models.ForeignKey(User, on_delete=models.CASCADE)
     Name = models.CharField(max_length=255)
-    Quantity = models.CharField(max_length=255)  # Change from FloatField to CharField
+    Quantity = models.CharField(max_length=255)  
     PredictedPrice = models.FloatField(null=True, blank=True)
 
     def __str__(self):
-        return f"{self.Quantity} of {self.Name}"
+        return f"{self.Quantity} of {self.Name}- Predicted Price: {self.predicted_price}"
 
