@@ -14,6 +14,7 @@ from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth import update_session_auth_hash
 from .forms import CustomUserChangeForm
 
+
 # Load the pre-trained model outside the view function
 model = joblib.load('C:/Users/user/Documents/GitHub/135399/webapp/models/linear_regression_model.joblib')
 

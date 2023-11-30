@@ -1,0 +1,41 @@
+
+body {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Home page styles */
+body.home {
+    background-image: url('/users/Images/ home-background.jpg');
+}
+
+/* Register page styles */
+body.register {
+    background-image: url('C:/Users/user/Documents/GitHub/135399/webapp/users/Images/login-background.jpg');
+}
+
+/* Login page styles */
+body.login {
+    background-image: url('C:/Users/user/Documents/GitHub/135399/webapp/users/Images/login-background.jpg');
+}
+
+
+
+
+.container {
+    padding-top: 50px;
+}
+
+.card {
+    margin: auto;
+    width: 50%;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Add padding to the buttons for better spacing */
+.mt-4,
+.mt-3 {
+    padding-top: 20px;
+}

@@ -22,7 +22,9 @@ from users import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('users.urls')),
-     path('predict_price/', views.predict_price, name='predict_price'),
+    
+    path('predict_price/', views.predict_price, name='predict_price'),
+    
 ]
 
 

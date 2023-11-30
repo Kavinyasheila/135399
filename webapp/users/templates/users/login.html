@@ -20,4 +20,10 @@
       </div>
     </form>
     </div>
+
+    <form method="post" action="{% url 'account_login' %}">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button type="submit">Login</button>
+    </form>
 {% endblock %}</title>

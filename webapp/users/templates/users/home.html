@@ -2,16 +2,58 @@
 {% load static %}
 {% block content %}
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
-    <div class="container">
-            <div class="row g-0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    
+    <!--INTRODUCTION OF THE PAGE -->
+    <div class="container"style="background-image: url('{% static 'users/css/Images/home-background.jpg' %}')">
+
+    
+            <div class="row g-0 text-center"id="header-text" style="margin-bottom: 30px;">
            <a href="{% url 'home' %}" class="btn btn-secondary">Home</a>     <div class="col-sm-6 col-md-8" id="header-text">
+
                   <h1 id="header-h1">Home page  <br> Web application. </h1>
                   <p id="header-paragraph">Discover the prices of common household items with our predictions. <br> </p>
                   <button class="btn" style="color: white; background-color: #fd5e14;" onclick="window.location.href='{% url 'profile' %}'">Go to Profile</button>
 
                 </div>
-
+              
                 <div class="col-6 col-md-4" id="header-image"><img src="images/in-liquid-slide-2.svg " alt=""></div>
               </div>
+    </div>
+
+    <div style="margin-bottom: 400px;"></div>
+
+
+              <section id="featured" class="featured">
+                <div class="container">
+              
+                  <div class="row">
+                    <div class="col-lg-4">
+                      <div class="icon-box">
+                        <i class="bi bi-card-checklist"></i>
+                        <h3><a href="">Access Maps</a></h3>
+                        <p>Explore the geographical dimension of vector insecticide resistance and the presence of invasive vector species with our interactive Maps Module. Gain insights into the spatial distribution of these critical factors, providing a visual understanding of their impact on malaria control efforts. Navigate through dynamic maps to uncover patterns and trends, empowering users to make informed decisions based on location-specific information.</p>
+                      </div>
+                    </div>
+                    <div class="col-lg-4 mt-4 mt-lg-0">
+                      <div class="icon-box">
+                        <i class="bi bi-bar-chart"></i>
+                        <h3><a href="">Dashboards</a></h3>
+                        <p>Elevate your data analysis experience with our comprehensive Dashboard, designed to visualize diverse datasets related to vector insecticide resistance and epidemiological profiles. Our user-friendly interface allows you to interpret complex data effortlessly, enabling the identification of trends, correlations, and actionable insights. Transform raw data into meaningful visualizations to support evidence-based decision-making in the fight against malaria.</p>
+                      </div>
+                    </div>
+                    <div class="col-lg-4 mt-4 mt-lg-0">
+                      <div class="icon-box">
+                        <i class="bi bi-binoculars"></i>
+                        <h3><a href="">Share Data</a></h3>
+                        <p>Contribute to the collective effort against malaria by using our Share Data Module. Empower users to upload and share valuable information related to malaria prevention, vector insecticide resistance, and other crucial aspects of the fight against this global health challenge. Whether it's epidemiological data, successful intervention strategies, or emerging trends, this collaborative platform facilitates the exchange of knowledge, fostering a united front in the battle against malaria.</p>
+                      </div>
+                    </div>
+                  </div>
+              
+                </div>
+              </section>
+
+              
     </div>
 {% endblock content %}

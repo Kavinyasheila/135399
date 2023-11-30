@@ -274,7 +274,7 @@
   border-radius: remy(3px);
   box-shadow: 0px remy(3px) remy(7px) rgba(0,0,0,.25);
   }
-  .signup__overlay {
+  .register__overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -287,7 +287,7 @@
   height: 100%;
   color: #fff;
   }
-  .signup__thumbnail {
+  .register__thumbnail {
   position: relative;
   padding: 2rem;
   display: flex;
@@ -330,7 +330,7 @@
   &:focus,
   &:hover {color: rgba(255,255,255,.5);}
   }
-  .signup__form {
+  .register__form {
   padding: 2.5rem;
   background: #fafafa;
   }
@@ -360,7 +360,7 @@
   &:focus,
   &:hover {background: lighten(#111, 13%);}
   }
-  .signup__link {
+  .register__link {
   font-size: .8rem;
   font-weight: 600;
   text-decoration: underline;
@@ -368,7 +368,7 @@
   &:focus,
   &:hover {color: darken(#999, 13%);}
   }
-  #signup-button{
+  #register-button{
     position: relative;
     border-radius: 20px;
     display: inline-block;
@@ -381,7 +381,7 @@
     transition: 0.2s;
   }
   
-  #signup-button:hover{
+  #register-button:hover{
     color: #021f3b;
     font-size: 15px;
     border-radius: 6px;
@@ -391,3 +391,13 @@
     text-decoration: none;
     border-radius: 9px;
   }
+  .floating-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+}
